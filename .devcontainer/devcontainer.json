@@ -17,7 +17,9 @@
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "python.testing.pytestEnabled": true,
-        "python.testing.pytestArgs": ["tests"],
+        "python.testing.pytestArgs": [
+          "tests"
+        ],
         "editor.formatOnSave": true,
         "[python]": {
           "editor.defaultFormatter": "ms-python.black-formatter"
@@ -25,7 +27,7 @@
       }
     }
   },
-  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+  "postCreateCommand": "pip install --upgrade pip && pip install -r .devcontainer/requirements.txt",
   "containerEnv": {
     "PYTHONPATH": "${containerWorkspaceFolder}",
     "AI_CODING_UTILS_BASE": "${containerWorkspaceFolder}"
