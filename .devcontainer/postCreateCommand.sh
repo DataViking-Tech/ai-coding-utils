@@ -11,7 +11,7 @@ pip install -r .devcontainer/requirements.txt
 # Install Claude CLI
 echo "Installing Claude CLI..."
 if ! command -v claude &> /dev/null; then
-    npm install -g @anthropic-ai/claude-cli
+    curl -fsSL https://claude.ai/install.sh | sh
     echo "✓ Claude CLI installed"
 else
     echo "✓ Claude CLI already installed"
