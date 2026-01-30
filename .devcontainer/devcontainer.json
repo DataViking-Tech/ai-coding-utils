@@ -32,9 +32,11 @@
     }
   },
   "postCreateCommand": ".devcontainer/postCreateCommand.sh",
+  "forwardPorts": [8765],
   "containerEnv": {
     "PYTHONPATH": "${containerWorkspaceFolder}",
-    "AI_CODING_UTILS_BASE": "${containerWorkspaceFolder}"
+    "AI_CODING_UTILS_BASE": "${containerWorkspaceFolder}",
+    "PATH": "/home/vscode/.local/bin:${containerEnv:PATH}"
   },
   "mounts": [
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.secrets,target=/home/vscode/.secrets,type=bind,consistency=cached"

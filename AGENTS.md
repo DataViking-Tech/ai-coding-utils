@@ -371,6 +371,36 @@ Test with parent project:
 
 ---
 
+## Agent Mail (MCP Multi-Agent Coordination)
+
+The devcontainer includes [mcp-agent-mail](https://github.com/Dicklesworthstone/mcp_agent_mail), an MCP server for multi-agent coordination. It runs on port 8765 and is pre-configured in Claude's MCP settings.
+
+### MCP Tools Available
+
+| Tool | Purpose |
+|------|---------|
+| `register_agent` | Register an agent identity with the mail system |
+| `send_message` | Send a message to another agent |
+| `check_my_messages` | Check for incoming messages |
+| `reserve_file_paths` | Reserve file paths to avoid conflicts between agents |
+| `search_messages` | Full-text search across all messages |
+
+### Server Management
+
+```bash
+am-start            # Start the agent mail server
+am-stop             # Stop the agent mail server
+am-logs             # Tail the server log
+```
+
+### Web UI
+
+Browse messages and agents at: http://localhost:8765/mail
+
+### Authentication
+
+Bearer token is stored at `~/.secrets/agent-mail-token` (mode 0600). The server reads it from `/opt/mcp-agent-mail/.env`.
+
 ## Landing the Plane (Session Completion)
 
 **When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.

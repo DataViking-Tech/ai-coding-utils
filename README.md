@@ -1,12 +1,13 @@
 # AI Coding Utils
 
-Reusable utilities for AI coding agents across multiple projects. Provides Slack notifications, beads workflow integration, and git hooks for automated agent workflows.
+Reusable utilities for AI coding agents across multiple projects. Provides Slack notifications, beads workflow integration, multi-agent coordination via MCP, and git hooks for automated agent workflows.
 
 ## Purpose
 
 This library enables AI coding agents to:
 - **Notify humans** via Slack when they need review, are blocked, or complete work
 - **Track work** using beads issue tracking with automated hooks
+- **Coordinate agents** via MCP agent mail (message passing, file reservation, search)
 - **Integrate seamlessly** into any Python project as a git submodule
 
 **Use this when:** Building AI agent workflows that need human-in-the-loop notifications and standardized issue tracking.
@@ -244,6 +245,23 @@ BEADS_AGENT_ID=agent-a python -m slack.cli review "PR #42 ready"
 # Agent B reports blocker
 BEADS_AGENT_ID=agent-b python -m slack.cli blocked "Waiting for PR #42 merge"
 ```
+
+## Agent Mail (Multi-Agent Coordination)
+
+The devcontainer includes [mcp-agent-mail](https://github.com/Dicklesworthstone/mcp_agent_mail), an MCP server that enables multi-agent coordination through message passing, file path reservation, and full-text search.
+
+- **Server**: Runs on port 8765, auto-started in the devcontainer
+- **Web UI**: http://localhost:8765/mail
+- **MCP tools**: `register_agent`, `send_message`, `check_my_messages`, `reserve_file_paths`, `search_messages`
+
+```bash
+# Server management
+am-start    # Start server
+am-stop     # Stop server
+am-logs     # View logs
+```
+
+See [AGENTS.md](AGENTS.md) for full tool documentation.
 
 ## Development
 
