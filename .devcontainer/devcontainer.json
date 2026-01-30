@@ -3,7 +3,11 @@
   "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20",
+      "nodeGypDependencies": true
+    }
   },
   "customizations": {
     "vscode": {
@@ -27,7 +31,7 @@
       }
     }
   },
-  "postCreateCommand": "pip install --upgrade pip && pip install -r .devcontainer/requirements.txt",
+  "postCreateCommand": ".devcontainer/postCreateCommand.sh",
   "containerEnv": {
     "PYTHONPATH": "${containerWorkspaceFolder}",
     "AI_CODING_UTILS_BASE": "${containerWorkspaceFolder}"
